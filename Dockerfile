@@ -16,4 +16,5 @@ COPY --chown=root:root ./cron-tasks /etc/crontabs/cron-tasks
 RUN chmod a+x ./incoming_ocr.sh
 RUN chmod 0644 /etc/crontabs/cron-tasks
 RUN crontab /etc/crontabs/cron-tasks
-CMD ["/bin/sh", "incoming_ocr.sh"]
+#CMD ["/bin/sh", "incoming_ocr.sh"]
+ENTRYPOINT ["/bin/sh"]
