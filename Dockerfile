@@ -13,8 +13,8 @@ VOLUME /input
 VOLUME /output
 WORKDIR /
 COPY --chown=root:root ./incoming_ocr.sh /
-RUN ls -l
+COPY --chown=root:root ./cron-tasks /etc/crontabs/cron-tasks
 RUN chmod a+x ./incoming_ocr.sh
-RUN ls -l
-CMD ["ls -l"]
+RUN chmod 0644 /etc/crontabs/cron-tasks
+RUN crontab /etc/crontabs/cron-tasks
 CMD ["/bin/sh", "incoming_ocr.sh"]
