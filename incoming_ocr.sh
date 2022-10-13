@@ -2,7 +2,7 @@
 source=/input/
 output=/output/
 maximumsize=5240
-for f in $source; do
+for f in $source/*; do
         echo $f
         ocrtime=$(date +%Y%m%d-%H%M%S)
         if [ "${f: -4}" == ".pdf" ]; then
