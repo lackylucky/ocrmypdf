@@ -2,6 +2,7 @@
 source=/input/
 output=/output/
 maximumsize=5240
+cd $source
 for f in $source/*; do
         echo $f
         ocrtime=$(date +%Y%m%d-%H%M%S)
