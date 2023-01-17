@@ -1,3 +1,4 @@
+
 # syntax=docker/dockerfile:1
 FROM alpine:latest
 MAINTAINER lackylucky
@@ -26,5 +27,7 @@ COPY --chown=root:root ./incoming_ocr.sh /
 RUN chmod a+x ./incoming_ocr.sh
 #RUN chmod 0644 /etc/crontabs/cron-tasks
 #RUN crontab /etc/crontabs/cron-tasks
+
+#ENTRYPOINT /bin/sh -c incoming_ocr.sh
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
 CMD ["/bin/sh", "incoming_ocr.sh"]
-#ENTRYPOINT ["/bin/sh"]
