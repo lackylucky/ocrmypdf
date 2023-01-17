@@ -2,23 +2,25 @@
 source=/input/
 output=/output/
 maximumsize=5240
-cd $source
-for f in *; do
-        echo $f
+
+inotifywait -r -m "$source" -e CREATE,MOVED_TO | while read path action file
+do      
+        cd $source
+        echo "The file '$file' appeared in directory '$path' via '$action'"
         ocrtime=$(date +%Y%m%d-%H%M%S)
-        if [ "${f: -4}" == ".pdf" ]; then
-                echo File $f is a pdf
-                actualsize=$(du -k "$f" | cut -f 1)
+        if [ "${file: -4}" == ".pdf" ]; then
+                echo File $file is a pdf
+                actualsize=$(du -k "$file" | cut -f 1)
                 if [ $actualsize -ge $maximumsize ]; then
-                        echo $f is $actualsize kilobytes and over the maximum of $maximumsize kilobytes, sorry no ocr
-                        mv $f $output/$ocrtime'_'$f
+                        echo $file is $actualsize kilobytes and over the maximum of $maximumsize kilobytes, sorry no ocr
+                        mv $file $output/$ocrtime'_'$file
                 else
-                        echo $f is $actualsize kilobytes, lets OCR
-                        ocrmypdf $source/$f $output/$ocrtime'_'$f
-                        rm $source/$f
+                        echo $file is $actualsize kilobytes, lets OCR
+                        ocrmypdf $source/$file $output/$ocrtime'_'$file
+                        rm $source/$file
                 fi
         else
-                echo File $f is not a pdf, no ocr
-                mv mv $f $output/$ocrtime'_'$f
+                echo File $file is not a pdf, no ocr
+                mv mv $file $output/$ocrtime'_'$file
         fi
 done
