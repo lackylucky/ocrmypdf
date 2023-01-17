@@ -1,1 +1,0 @@
-*/5 * * * * /bin/sh /incoming_ocr.sh
