@@ -17,10 +17,13 @@ do
                 else
                         echo $file is $actualsize kilobytes, lets OCR
                         ocrmypdf $source/$file $output/$ocrtime'_'$file
+                        echo "OCR done, remove file '$file' in '$path'"
                         rm $source/$file
+                        echo "file removed"
                 fi
         else
                 echo File $file is not a pdf, no ocr
-                mv mv $file $output/$ocrtime'_'$file
+                mv $file $output/$ocrtime'_'$file
+                echo "File moved to output folder"
         fi
 done
