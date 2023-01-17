@@ -6,7 +6,7 @@ MAINTAINER lackylucky
 ENV LANG C.UTF-8
 
 #Run Updates
-RUN apk update --available
+RUN apk update
 
 #Install pakages
 RUN apk add --no-cache \
@@ -22,9 +22,9 @@ VOLUME /output
 
 WORKDIR /
 COPY --chown=root:root ./incoming_ocr.sh /
-COPY --chown=root:root ./cron-tasks /etc/crontabs/cron-tasks
+#COPY --chown=root:root ./cron-tasks /etc/crontabs/cron-tasks
 RUN chmod a+x ./incoming_ocr.sh
-RUN chmod 0644 /etc/crontabs/cron-tasks
-RUN crontab /etc/crontabs/cron-tasks
-#CMD ["/bin/sh", "incoming_ocr.sh"]
-ENTRYPOINT ["/bin/sh"]
+#RUN chmod 0644 /etc/crontabs/cron-tasks
+#RUN crontab /etc/crontabs/cron-tasks
+CMD ["/bin/sh", "incoming_ocr.sh"]
+#ENTRYPOINT ["/bin/sh"]
