@@ -1,3 +1,4 @@
+
 # syntax=docker/dockerfile:1
 FROM alpine:latest
 MAINTAINER lackylucky
@@ -6,7 +7,7 @@ MAINTAINER lackylucky
 ENV LANG C.UTF-8
 
 #Run Updates
-RUN apk update --available
+RUN apk update
 
 #Install pakages
 RUN apk add --no-cache \
@@ -27,4 +28,6 @@ RUN chmod a+x ./incoming_ocr.sh
 RUN chmod 0644 /etc/crontabs/cron-tasks
 RUN crontab /etc/crontabs/cron-tasks
 #CMD ["/bin/sh", "incoming_ocr.sh"]
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT /bin/sh -c incoming_ocr.sh
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
+#CMD echo hello world
