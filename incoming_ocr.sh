@@ -3,7 +3,7 @@ source=/input/
 output=/output/
 maximumsize=5240
 
-inotifywait -r -m "$source" --format '%w%f' -e CREATE,MOVED_TO | while read path action file
+inotifywait -r -m "$source" -e CREATE,MOVED_TO | while read path action file
 do      
         cd $source
         echo "The file '$file' appeared in directory '$path' via '$action'"
