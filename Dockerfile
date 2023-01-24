@@ -7,6 +7,7 @@ MAINTAINER lackylucky
 ENV LANG ENG
 ENV INPUT /
 ENV OUTPUT /
+ENV MAXSIZE 5240
 
 #Run Updates
 RUN apk update
@@ -15,6 +16,11 @@ RUN apk update
 RUN apk add --no-cache \
     tesseract-ocr \
     inotify-tools \
+    imagemagick \
+    parallel \
+    ghostscript \
+    qpdf \
+    unpaper \
     ocrmypdf
 
 #Make folder and volumes
