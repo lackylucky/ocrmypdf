@@ -4,7 +4,9 @@ FROM alpine:latest
 MAINTAINER lackylucky
 
 #Variables
-ENV LANG C.UTF-8
+ENV LANG ENG
+ENV INPUT /
+ENV OUTPUT /
 
 #Run Updates
 RUN apk update
@@ -23,11 +25,7 @@ VOLUME /output
 
 WORKDIR /
 COPY --chown=root:root ./incoming_ocr.sh /
-#COPY --chown=root:root ./cron-tasks /etc/crontabs/cron-tasks
 RUN chmod a+x ./incoming_ocr.sh
-#RUN chmod 0644 /etc/crontabs/cron-tasks
-#RUN crontab /etc/crontabs/cron-tasks
 
-#ENTRYPOINT /bin/sh -c incoming_ocr.sh
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
+
 CMD ["/bin/sh", "incoming_ocr.sh"]
