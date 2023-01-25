@@ -9,3 +9,6 @@ else
 	echo Install $language
         apk add --no-cache tesseract-ocr-data-$language
 fi
+
+# Add cron job
+crontab -l | { cat; echo "*/$INTERVAL * * * * /bin/sh ./incoming_ocr.sh"; } | crontab -
