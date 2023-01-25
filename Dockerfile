@@ -14,7 +14,6 @@ RUN apk update
 
 #Install pakages
 RUN apk add --no-cache \
-    cron \
     tesseract-ocr \
     inotify-tools \
     imagemagick \
@@ -33,6 +32,8 @@ VOLUME /output
 WORKDIR /
 COPY --chown=root:root ./incoming_ocr.sh /
 RUN chmod a+x ./incoming_ocr.sh
+COPY --chown=root:root ./install_lang-cron.sh /
+RUN chmod a+x ./install_lang-cron.sh
 
 CMD /bin/sh install_lang-cron.sh
-CMD cron
+CMD crond
