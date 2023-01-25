@@ -34,5 +34,5 @@ WORKDIR /
 COPY --chown=root:root ./incoming_ocr.sh /
 RUN chmod a+x ./incoming_ocr.sh
 
-CMD /bin/sh install_language.sh
+CMD /bin/sh install_lang-cron.sh
 CMD cron
