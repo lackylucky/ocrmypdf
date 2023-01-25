@@ -11,4 +11,4 @@ else
 fi
 
 # Add cron job
-crontab -l | { cat; echo "*/$INTERVAL * * * * /bin/sh ./incoming_ocr.sh"; } | crontab -
+crontab -l | { cat; echo "*/$INTERVAL * * * * /bin/sh /incoming_ocr.sh"; } | crontab -
