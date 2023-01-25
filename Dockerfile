@@ -3,6 +3,7 @@ FROM alpine:latest
 MAINTAINER lackylucky
 
 #Variables
+ENV INTERVAL 5
 ENV LANG ENG
 ENV INPUT /
 ENV OUTPUT /
@@ -13,6 +14,7 @@ RUN apk update
 
 #Install pakages
 RUN apk add --no-cache \
+    cron \
     tesseract-ocr \
     inotify-tools \
     imagemagick \
@@ -32,5 +34,5 @@ WORKDIR /
 COPY --chown=root:root ./incoming_ocr.sh /
 RUN chmod a+x ./incoming_ocr.sh
 
-
-CMD ["/bin/sh", "incoming_ocr.sh"]
+CMD /bin/sh install_language.sh
+CMD cron
