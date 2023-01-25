@@ -35,5 +35,4 @@ RUN chmod a+x ./incoming_ocr.sh
 COPY --chown=root:root ./install_lang-cron.sh /
 RUN chmod a+x ./install_lang-cron.sh
 
-CMD ["/bin/sh", "install_lang-cron.sh"]
-CMD ["exec", "crond", "-f"]
+CMD ["/bin/sh", "install_lang-cron.sh" "|" "exec", "crond", "-f"]
