@@ -5,7 +5,7 @@ language="$(echo $LANG | tr [:upper:] [:lower:])"
 
 #Check for files
 cd $source/$INPUT
-for f in *; do
+for f in *.*; do
         echo "The file '$f' appeared in directory '$source/$INPUT'"
         ocrtime=$(date +%Y%m%d-%H%M%S)
         if [ "${f: -4}" == ".pdf" ]; then
