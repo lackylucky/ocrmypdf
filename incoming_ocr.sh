@@ -2,14 +2,6 @@
 source=/input
 target=/output
 language="$(echo $LANG | tr [:upper:] [:lower:])"
-#Install Language
-echo Language $language is selected
-if [[ "${language}" == "eng" ]]; then
-		echo Language $language already installed
-else
-	echo Install $language
-        apk add --no-cache tesseract-ocr-data-$language
-fi
 
 #Check for files
 cd $source/$INPUT
