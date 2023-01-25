@@ -17,9 +17,7 @@ for f in *; do
                                 mv $f $target/$OUTPUT/$ocrtime'_'$f
                         else
                                echo $f is $actualsize kilobytes, lets OCR
-                                ocrmypdf -d -c -l $language --rotate-pages $source/$INPUT/$f $target/$OUTPUT/$ocrtime'_'$f
-                               echo "OCR finished, remove file '$f' in '$source/$INPUT'"
-                               rm $source/$INPUT/$f
+                                ocrmypdf -d -c -l $language --rotate-pages $source/$INPUT/$f $target/$OUTPUT/$ocrtime'_'$f && echo "OCR finished, remove file '$f' in '$source/$INPUT'" && rm $source/$INPUT/$f
                               echo "file removed"
                         fi
                 else
