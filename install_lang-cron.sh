@@ -15,4 +15,4 @@ echo Add cron job for every $INTERVAL minutes
 crontab -l | { cat; echo "*/$INTERVAL * * * * /bin/sh /incoming_ocr.sh"; } | crontab -
 
 echo Start crond
-crond
+crond -f
