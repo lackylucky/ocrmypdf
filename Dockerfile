@@ -3,6 +3,7 @@ FROM alpine:latest
 MAINTAINER lackylucky
 
 #Variables
+ENV INTERVAL 5
 ENV LANG ENG
 ENV INPUT /
 ENV OUTPUT /
@@ -31,6 +32,7 @@ VOLUME /output
 WORKDIR /
 COPY --chown=root:root ./incoming_ocr.sh /
 RUN chmod a+x ./incoming_ocr.sh
+COPY --chown=root:root ./install_lang-cron.sh /
+RUN chmod a+x ./install_lang-cron.sh
 
-
-CMD ["/bin/sh", "incoming_ocr.sh"]
+CMD ["/bin/sh", "install_lang-cron.sh", "&&", "exec", "crond", "-n"]
