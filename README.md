@@ -12,7 +12,7 @@ A cronjob run to scan for new files. Unfortently it isn't possible monitor the f
 |Variable|Description|Default|
 |---|---|---|
 |INTERVAL|Interval in minutes to scan for new files in the Input Folder|5|
-|LANG|Language for the ocr enginde. You can use every languagecode from the list at https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html|ENG|
+|LANGUAGE|Language for the ocr enginde. You can use every languagecode from the list at https://tesseract-ocr.github.io/tessdoc/Data-Files-in-different-versions.html|ENG|
 |INPUT|Path to a subfolder insiede of the mounted /input/ volume|/|
 |OUTPUT|Path to a subfolder inside of the mounted /output/ volume |/|
 |MAXSIZE|Maximum size (kB) of PDF's. If the size over the maximum, the script move the file without ocr.|5240|
