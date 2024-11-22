@@ -1,7 +1,7 @@
 #!/bin/bash
 source=/input
 target=/output
-language="$(echo $LANG | tr [:upper:] [:lower:])"
+language="$(echo $LANGUAGE | tr [:upper:] [:lower:])"
 
 #Check for files
 cd $source/$INPUT
