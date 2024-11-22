@@ -1,5 +1,5 @@
 #!/bin/bash
-language="$(echo $LANG | tr [:upper:] [:lower:])"
+language="$(echo $LANGUAGE | tr [:upper:] [:lower:])"
 
 #Install Language
 echo Language $language is selected
