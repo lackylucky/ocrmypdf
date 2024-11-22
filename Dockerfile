@@ -14,15 +14,25 @@ RUN apk update
 
 #Install pakages
 RUN apk add --no-cache \
-    tesseract-ocr \
-    inotify-tools \
-    imagemagick \
-    parallel \
     ghostscript \
+    jbig2enc \
+    leptonica \
+    pngquant \
+    py3-deprecation \
+    py3-img2pdf \
+    py3-packaging \
+    py3-pdfminer \
+    py3-pikepdf \
+    py3-pillow \
+    py3-pluggy \
+    py3-reportlab \
+    py3-rich \
+    python3 \
     qpdf \
+    tesseract-ocr \
     unpaper \
     ocrmypdf
-
+    
 #Make folder and volumes
 RUN mkdir /input
 RUN mkdir /output
