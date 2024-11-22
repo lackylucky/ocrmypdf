@@ -31,6 +31,7 @@ RUN apk add --no-cache \
     qpdf \
     tesseract-ocr \
     unpaper \
+    tesseract-ocr-data-osd\
     ocrmypdf
     
 #Make folder and volumes
