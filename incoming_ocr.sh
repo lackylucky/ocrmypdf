@@ -21,9 +21,13 @@ for f in *; do
                               echo "file removed"
                         fi
                 else
-                      echo File $f is not a pdf, no ocr
-                     mv $f $target/$OUTPUT/$ocrtime'_'$f
-                       echo "File moved to $target/$OUTPUT"
+                        if [ "${f: -4}" == ".dat" ]; then
+                                rm $source/$INPUT/$f
+                        else
+                              echo File $f is not a pdf, no ocr
+                             mv $f $target/$OUTPUT/$ocrtime'_'$f
+                               echo "File moved to $target/$OUTPUT"
+                        fi
                 fi
         fi
 done
