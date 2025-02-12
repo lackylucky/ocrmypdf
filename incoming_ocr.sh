@@ -21,8 +21,8 @@ for f in *; do
                               echo "file removed"
                         fi
                 else
-                        if [ "${f: -4}" == ".dat" ]; then
-                                rm $source/$INPUT/$f
+                        if [ "$f" == "tesseract_opencl_profile_devices.dat" ]; then
+                                echo "$f is required for Tesseract, let the file in place"
                         else
                               echo File $f is not a pdf, no ocr
                              mv $f $target/$OUTPUT/$ocrtime'_'$f
